@@ -1,0 +1,20 @@
+- name: Install prerequisites
+  apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates 
+      - curl
+
+- name: Add an Apt signing key
+  ansible.builtin.apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: Add specified repository into sources list
+  ansible.builtin.apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+
+- name: Install kubectl
+  apt:
+    pkg: kubectl

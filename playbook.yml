@@ -1,0 +1,20 @@
+- hosts: localhost
+  connection: local
+  become: True
+  roles:
+    - role: switch-apt-mirror
+      ubuntu_apt_mirror: 'ua.archive.ubuntu.com'
+    - role: packages
+    - role: google-chrome
+    - role: gcloud-sdk
+      gcloud_install_from_package_manager: true
+      cloud_sdk_repo: "cloud-sdk"
+    - role: intellij-idea
+      intellij_edition: ultimate
+    - role: helm
+    - role: k9s
+    - role: kubectl
+    - role: minikube
+    - role: starship
+    - role: terraform
+    - role: ksync

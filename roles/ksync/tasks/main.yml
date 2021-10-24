@@ -1,0 +1,12 @@
+- name: Get latest ksync version
+  uri:
+    url: "https://api.github.com/repos/ksync/ksync/releases/latest"
+    return_content: True
+  register: json_reponse
+
+- name: Install ksync
+  become: True
+  get_url:
+    url: https://github.com/ksync/ksync/releases/download/{{ json_reponse.json.tag_name }}/ksync_linux_amd64
+    dest: /usr/local/bin/ksync
+    mode: 0755

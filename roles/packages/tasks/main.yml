@@ -1,0 +1,23 @@
+- name: Install packages
+  apt:
+    pkg:
+      - awscli
+      - htop
+      - docker.io
+      - mc
+      - network-manager-l2tp-gnome
+      - network-manager-strongswan
+    state: latest
+    update_cache: true
+
+- name: Docker group membership
+  ansible.builtin.user:
+    name: "{{ lookup('env', 'USER') }}"
+    groups: "docker"
+    append: True
+
+- name: Remove unnecessary snaps
+  community.general.snap:
+    name:
+      - firefox
+    state: absent

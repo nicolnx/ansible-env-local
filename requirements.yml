@@ -1,0 +1,20 @@
+- name: intellij-idea
+  src: gantsign.intellij
+
+- name: k9s
+  src: andrewrothstein.k9s
+
+- name: starship
+  src: andrewrothstein.starship
+
+- name: minikube
+  src: gantsign.minikube
+
+- name: google-chrome
+  src: darkwizard242.googlechrome
+
+- name: gcloud-sdk
+  src: markosamuli.gcloud
+
+- name: switch-apt-mirror
+  src: chusiang.switch-apt-mirror
